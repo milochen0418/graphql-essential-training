@@ -1,12 +1,14 @@
-import { buildSchema } from 'graphql';
+import { resolvers } from './resolvers';
+import { makeExecutableSchema } from 'graphql-tools';
 
-const schema = buildSchema(`
+const typeDefs = `
     type Friend {
         id: ID
         firstName: String
         lastName: String
         gender: Gender
         age: Int
+        language: String
         email: String
         contacts: [Contact]
     }
@@ -28,22 +30,25 @@ const schema = buildSchema(`
 
     input FriendInput {
         id: ID
-        firstName: String
+        firstName: String!
         lastName: String
         gender: Gender
         age: Int
+        language: String
         email: String
         contacts: [ContactInput]
     }
 
     input ContactInput {
         firstName: String
-        lastName: String
+        lastName: String 
     }
 
     type Mutation {
         createFriend(input: FriendInput): Friend
     }
-`)
+`;
 
-export default schema;
+const schema = makeExecutableSchema({ typeDefs, resolvers});
+
+export { schema };
