@@ -27,4 +27,10 @@
 ### Update items with mutations 
 ### Delete items with mutations  
 
+## 5. Queries in Depth  
+### 5.1 Simple query with persistence
+### 5.2 Querying with arguments 
+### 5.3 Querying with aliases  
+### 5.4 Querying with fragments  
+
 
