@@ -1,5 +1,5 @@
-import { resolvers } from './resolvers';
 import { makeExecutableSchema } from 'graphql-tools';
+import { resolvers } from './resolvers';
 
 const typeDefs = `
     type Friend {
@@ -8,7 +8,6 @@ const typeDefs = `
         lastName: String
         gender: Gender
         age: Int
-        language: String
         email: String
         contacts: [Contact]
     }
@@ -30,18 +29,17 @@ const typeDefs = `
 
     input FriendInput {
         id: ID
-        firstName: String!
+        firstName: String
         lastName: String
         gender: Gender
         age: Int
-        language: String
         email: String
         contacts: [ContactInput]
     }
 
     input ContactInput {
         firstName: String
-        lastName: String 
+        lastName: String
     }
 
     type Mutation {
@@ -49,6 +47,6 @@ const typeDefs = `
     }
 `;
 
-const schema = makeExecutableSchema({ typeDefs, resolvers});
+const schema = makeExecutableSchema({ typeDefs, resolvers });
 
 export { schema };
