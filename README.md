@@ -22,4 +22,9 @@
 ### 3.3 Finalize the database connectors  
 ### 3.4 Data persistence with SQL  
 
+## 4. Mutations 
+### Add new items with mutations  
+### Update items with mutations 
+### Delete items with mutations  
+
 
