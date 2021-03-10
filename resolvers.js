@@ -1,3 +1,5 @@
+const friendDatabase = {};
+
 class Friend {
     constructor(id, { firstName, lastName, gender, email}) {
         this.id = id;
@@ -7,8 +9,6 @@ class Friend {
         this.email = email;
     }
 }
-
-const friendDatabase = {};
 
 const resolvers = { 
     getFriend: ({ id }) => {

@@ -1,4 +1,4 @@
-import {buildSchema} from 'graphql';
+import { buildSchema } from 'graphql';
 
 const schema = buildSchema(`
     type Friend {
@@ -6,6 +6,7 @@ const schema = buildSchema(`
         firstName: String
         lastName: String
         gender: String
+        age: Int
         email: String
     }
 
@@ -18,6 +19,7 @@ const schema = buildSchema(`
         firstName: String
         lastName: String
         gender: String
+        age: Int
         email: String
     }
 
