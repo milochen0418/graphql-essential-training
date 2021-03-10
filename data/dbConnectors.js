@@ -1,4 +1,4 @@
-import mongoose from 'mongoose';
+import mongoose, { mongo } from 'mongoose';
 import Sequelize from 'sequelize';
 import _ from 'lodash';
 import casual from 'casual';
@@ -6,7 +6,8 @@ import casual from 'casual';
 // Mongo connection
 mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost/friends', {
-    useMongoClient: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 });
 
 const friendSchema = new mongoose.Schema({
@@ -35,10 +36,10 @@ const friendSchema = new mongoose.Schema({
 
 const Friends = mongoose.model('friends', friendSchema);
 
-// SQL 
+// SQL
 const sequelize = new Sequelize('database', null, null, {
     dialect: 'sqlite',
-    storage: './aliens.sqlite',
+    storage: './alien.sqlite',
 });
 
 const Aliens = sequelize.define('aliens', {
@@ -56,5 +57,6 @@ Aliens.sync({ force: true }).then(() => {
         });
     });
 });
+
 
 export { Friends, Aliens };
