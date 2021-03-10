@@ -1,5 +1,5 @@
-import { makeExecutableSchema } from 'graphql-tools';
 import { resolvers } from './resolvers';
+import { makeExecutableSchema } from 'graphql-tools';
 
 const typeDefs = `
     type Friend {
@@ -7,8 +7,8 @@ const typeDefs = `
         firstName: String
         lastName: String
         gender: Gender
-        language: String
         age: Int
+        language: String
         email: String
         contacts: [Contact]
     }
@@ -37,25 +37,26 @@ const typeDefs = `
 
     input FriendInput {
         id: ID
-        firstName: String
+        firstName: String!
         lastName: String
         gender: Gender
-        language: String
         age: Int
+        language: String
         email: String
         contacts: [ContactInput]
     }
 
     input ContactInput {
         firstName: String
-        lastName: String
+        lastName: String 
     }
 
     type Mutation {
         createFriend(input: FriendInput): Friend
+        updateFriend(input: FriendInput): Friend
     }
 `;
 
-const schema = makeExecutableSchema({ typeDefs, resolvers });
+const schema = makeExecutableSchema({ typeDefs, resolvers});
 
 export { schema };
