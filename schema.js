@@ -7,8 +7,13 @@ const schema = buildSchema(`
         lastName: String
         gender: Gender
         age: Int
-        language: String
         email: String
+        contacts: [Contact]
+    }
+
+    type Contact {
+        firstName: String
+        lastName: String
     }
 
     enum Gender {
@@ -23,12 +28,17 @@ const schema = buildSchema(`
 
     input FriendInput {
         id: ID
-        firstName: String!
+        firstName: String
         lastName: String
         gender: Gender
         age: Int
-        language: String
         email: String
+        contacts: [ContactInput]
+    }
+
+    input ContactInput {
+        firstName: String
+        lastName: String
     }
 
     type Mutation {
